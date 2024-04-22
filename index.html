@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RECIPLACE</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <!-- Bulma CSS Link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <!-- favicon links -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon img 500 x 500 png.png">
+  <!-- Group Stylesheet -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+  <header class="header-container">
+    <nav class="navContainer navbar p-2">
+      <a href="index.html"><img class="image is-16-16 limitImageSize" src="./assets/favicon/favicon img 500 x 500 png.png" alt="ReciPlace's logo and icon of fork and spoon"></a>
+      <a href="index.html"><img class="image is-16-16 limitImageSize" src="./assets/logo/reciplacelogotext.png" alt="ReciPlace's logo and icon of fork and spoon"></a>
+      <div class="button-container content navbar-end modalBtnContainer">
+          <a role="button" class="button modalButton js-modal-trigger mr-4" data-target="modal-js-ingredient">Search Recipes by Ingredient</a>
+          <a role="button" class="button modalButton js-modal-trigger mr-2" data-target="modal-js-places">Search Places to Eat</a>
+      </div>
+    </nav>
+  </header>
+  <!-- Favourites -->
+  <!-- when we click on favourites button -->
+  <!-- MAIN/BODY -->
+  <!-- hero: http://bulma.io/documentation/layout/hero/ -->
+  <main
+    class="hero is-3 is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+    <div class="hero-body w-6 align-items">
+      <div class="has-text-centered" id="backgroundImageHolder"><img src="assets/favicon/favicon img transparent bg for fun 500 x 500.png" id="backgroundImage"></div>
+      <div class="columns is-centered is-desktop is-hidden" id="recipe-display">
+        <div class="column is-one-quarter">
+          <div class="notification m-3 p-6">
+            <h2 class="title is-8 has-text-centered">Favourites</h2>
+            <p class="subtitle" id="favItems"></p>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="notification m-3 p-6">
+            <h2 class="title is-8 has-text-centered">Recipe</h2>
+            <p class="subtitle has-text-centered" id="recipeCard"></p>
+            <p class="subtitle" class="image is-square" id="imageSize"></p>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="notification m-3 p-6">
+            <h2 class="title is-8 has-text-centered mb-1">Step by Step Instructions</h2>
+            <ol class="subtitle" id="instructionsList"></ol>
+          </div>
+        </div>
+      </div>
+      <!-- -------------------------------Restaurant Section------------------------------- -->
+      <div
+        class="columns is-centered is-desktop is-hidden"
+        id="restaurant-display">
+        <div class="column">
+          <div class="notification m-3 p-6">
+            <h2 class="title is-8 has-text-centered">Favourites</h2>
+            <div class="subtitle" id="restaurant-favs"></div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="notification m-3 p-6">
+            <h2 class="title is-8 has-text-centered">Restaurant Options</h2>
+            <div class="subtitle" id="restaurant-options"></div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="notification m-3 p-6 has-text-centered">
+            <h2 class="title is-8">Restaurant Details</h2>
+            <div class="subtitle" id="restaurant-details"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+    <!-- Modal for Ingredient Search -->
+    <div class="modal" id="modal-js-ingredient">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Recipes by Ingredient</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+    
+        <section class="modal-card-body">
+          <!-- Content ... -->
+          <form>
+            <div class="field">
+              <label class="label" for="ingredient">Ingredient</label>
+              <div class="control">
+                <input class="input" type="text" id="ingredient" placeholder="Enter an ingredient" list="suggestions-item">
+                <datalist id="suggestions-item">
+                  <option value="Tofu">
+                  <option value="Beef">
+                  <option value="Chicken">
+                  <option value="Pork">
+                  <option value="Salmon">
+                </datalist>
+              </div>
+            </div>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <div class="buttons">
+            <button class="button" id="ingredient-form">Submit</button>
+          </div>
+        </footer>
+      </div>
+    </div>
+  <!-- Modal for Places -->
+  <div class="modal" id="modal-js-places">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Places to Eat</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <!-- Content ... -->
+        <form>
+          <div class="field">
+            <label class="label" for="dish">Dish</label>
+            <div class="control">
+              <input class="input" type="text" id="dish" placeholder="Enter a dish you are craving"
+                list="suggestions-dish">
+              <datalist id="suggestions-dish">
+                <option value="Pizza">
+                <option value="Pasta">
+                <option value="Burgers">
+                <option value="Stir Fry">
+                <option value="Malatang">
+              </datalist>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="suburb">Suburb</label>
+            <div class="control">
+              <input class="input" type="text" id="suburb" placeholder="Enter your suburb">
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label" for="country">Country</label>
+            <div class="control">
+              <input class="input" type="text" id="country" placeholder="Enter your country">
+            </div>
+          </div>
+        </form>
+      </section>
+      <footer class="modal-card-foot">
+        <div class="buttons">
+          <button class="button" id="dish-form">Submit</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+  </div>
+
+
+
+  <footer class="footer">
+    <div class="content has-text-centered"><i class="fa-solid fa-wand-magic-sparkles"></i>
+      <p>Made by Mimi, Lachlan & Rhianna</p>
+    </div>
+
+    <div class="hero-foot">
+      <nav class="tabs is-boxed is-centered">
+        <div class="container">
+          <ul>
+            <li class="is-active">
+              <a href="https://github.com/CinosMagician/group-2-recipe-project">ReciPlace Project</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </footer>
+
+
+
+  <!-- Mimi struggled with reading the documentation and asked Frank Fu for assistance -->
+  <script>
+    (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+      key: 'AIzaSyBWhZsM7ODVoUhE2kvx8i1DYjyNJPCaHFg',
+      v: "weekly",
+      // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+      // Add other bootstrap parameters as needed, using camel case.
+    });
+  </script>
+  <script src="./assets/js/script.js"></script>
+  <!-- try comment out later -->
+  <script src="https://kit.fontawesome.com/65b79940ed.js" crossorigin="anonymous"></script>
+</body>
+<!-- BODY -->
+
+</html>

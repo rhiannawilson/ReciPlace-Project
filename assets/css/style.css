@@ -1,0 +1,175 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+:root {
+    --bkgColor: #DBDFDB;
+    --fontColor: #000023;
+    --popColor: #FE6400;
+}
+
+body {
+    background-color: var(--bkgColor);
+    height: 100vh;
+}
+
+/* font styling */
+
+h2 {
+    font-size: 19px;
+    font-weight: bold;
+    color: var(--popColor);    
+}
+
+p {
+    color: var(--popColor);
+}
+
+i {
+    color:var(--popColor);
+}
+
+.image {
+    display: flex;
+}
+
+/* header styling */
+
+
+.navContainer {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);  
+    position: relative;
+    background-color: var(--fontColor);
+}
+
+/* .btnContainer { */
+    /* justify-content: space-evenly; */
+/* } */
+
+.modalBtnContainer {
+    align-items: center;
+}
+
+.modalButton { 
+    /* display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+    height: 50px;
+    width: 300px;
+    border: 1px solid white;
+    color: var(--popColor)
+}
+
+#favouriteItem {
+    color: var(--popColor);
+}
+
+#favItems, #restaurant-favs, #restaurant-options{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.favButton {
+    margin-top: 0.5rem;
+    min-width: 200px;
+}
+
+.button:hover {
+    background-color: var(--fontColor);
+    color: var(--bkgColor);
+  }
+
+/* main page styling */
+
+.hero {
+    background-color: var(--bkgColor);
+}
+
+.hero-body {
+    background-color: var(--bkgColor);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);  
+}
+
+
+.footer {
+    background-color: var(--bkgColor);
+}
+
+
+#imageSize {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.limitImageSize {
+    max-height: 100px;
+}
+
+.centeredItem {
+    position: relative;
+    top: 165px;
+}
+
+/* .field {
+    display: flex;
+    align-items: center;
+} */
+
+/* .column {
+    display: flex;
+} */
+
+/* Tooltip container Example from W3Schools*/
+.tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size: small;
+  
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+  
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  /* Tooltip arrow */
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .custom-btn {
+    white-space: normal;
+  }
